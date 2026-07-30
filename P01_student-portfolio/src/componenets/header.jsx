@@ -17,7 +17,7 @@ const LinkedinIcon = () => (
   </svg>
 );
 
-function Header({ name, tagline }) {
+function Header({ name, tagline, onViewResume }) {
   const info = resumeData.personalInfo;
 
   return (
@@ -40,7 +40,7 @@ function Header({ name, tagline }) {
           {tagline || info.tagline}
         </p>
 
-        {/* Hero CTA Action Buttons */}
+        {/* Hero Action Buttons */}
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
           <a 
             href="/keyur_resume.pdf" 
@@ -50,13 +50,13 @@ function Header({ name, tagline }) {
           >
             <Download size={20} /> Download Resume PDF
           </a>
-          <a 
-            href="#resume" 
+          <button 
+            onClick={onViewResume} 
             className="btn btn-secondary"
             style={{ padding: '0.85rem 1.75rem', fontSize: '1rem' }}
           >
-            <FileText size={20} /> View Resume Page
-          </a>
+            <FileText size={20} /> View Resume Only Mode
+          </button>
         </div>
 
         <div className="contact-quick-bar">

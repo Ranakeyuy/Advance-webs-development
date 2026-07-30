@@ -1,73 +1,91 @@
 import React from 'react';
-import { Download, ExternalLink, FileText, CheckCircle2 } from 'lucide-react';
-import { resumeData } from '../data/resumeData';
+import { Download, ExternalLink, FileText } from 'lucide-react';
 
 function ResumeSection() {
-  const info = resumeData.personalInfo;
-
   return (
-    <section id="resume">
-      <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h2 className="section-title">
-              <FileText size={26} color="var(--accent-cyan)" /> Official Resume
-            </h2>
-            <p className="section-subtitle" style={{ margin: 0 }}>
-              View or download Keyur Rakeshbhai Rana's full PDF resume
-            </p>
+    <section id="resume" style={{ padding: '2rem 0 4rem' }}>
+      <div className="container" style={{ maxWidth: '1000px' }}>
+        
+        {/* Top Header Bar with Download Button */}
+        <div 
+          className="glass-card" 
+          style={{ 
+            padding: '1.25rem 2rem', 
+            marginBottom: '2rem', 
+            display: 'flex', 
+            justify: 'space-between', 
+            alignItems: 'center', 
+            flexWrap: 'wrap', 
+            gap: '1rem',
+            borderLeft: '4px solid var(--accent-cyan)'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <FileText size={28} color="var(--accent-cyan)" />
+            <div>
+              <h2 style={{ fontSize: '1.4rem', fontWeight: '800', margin: 0 }}>
+                Keyur Rakeshbhai Rana — Resume
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', margin: 0 }}>
+                2-Page PDF Resume Document
+              </p>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            {/* Primary Direct PDF Download Button */}
+          <div style={{ display: 'flex', gap: '0.75rem' }}>
+            {/* Primary Download Button */}
             <a 
               href="/keyur_resume.pdf" 
               download="Keyur_Rana_Resume.pdf" 
               className="btn btn-primary"
-              title="Download Keyur's Resume PDF"
+              style={{ padding: '0.75rem 1.5rem', fontSize: '0.95rem' }}
             >
-              <Download size={18} /> Download Resume (PDF)
+              <Download size={18} /> Download PDF Resume
             </a>
 
-            {/* View PDF in New Tab Button */}
+            {/* Open PDF in New Tab */}
             <a 
               href="/keyur_resume.pdf" 
               target="_blank" 
               rel="noreferrer" 
               className="btn btn-secondary"
-              title="Open Resume in New Tab"
+              style={{ padding: '0.75rem 1.25rem', fontSize: '0.95rem' }}
             >
-              <ExternalLink size={18} /> Open PDF
+              <ExternalLink size={18} /> Open Fullscreen
             </a>
           </div>
         </div>
 
-        {/* Embedded Interactive PDF Viewer Container */}
-        <div className="glass-card" style={{ padding: '1rem', overflow: 'hidden', borderRadius: 'var(--radius-lg)' }}>
-          <div style={{ background: 'var(--bg-secondary)', padding: '0.75rem 1.25rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <FileText size={16} color="var(--accent-cyan)" /> keyur_resume.pdf (110 KB)
-            </span>
-            <span className="badge" style={{ background: 'rgba(16, 185, 129, 0.15)', color: 'var(--accent-emerald)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-              <CheckCircle2 size={13} /> Official Document Verified
-            </span>
-          </div>
-
-          <div style={{ width: '100%', height: '750px', background: '#ffffff', borderRadius: '0 0 var(--radius-md) var(--radius-md)' }}>
-            <iframe 
-              src="/keyur_resume.pdf#toolbar=1&navpanes=0" 
-              title="Keyur Rakeshbhai Rana Resume PDF"
-              width="100%" 
-              height="100%" 
-              style={{ border: 'none' }}
-            >
-              <p style={{ padding: '2rem', textAlign: 'center', color: '#000000' }}>
-                Your browser does not support inline PDF viewing. 
-                <a href="/keyur_resume.pdf" download="Keyur_Rana_Resume.pdf">Click here to download the PDF</a>.
-              </p>
-            </iframe>
-          </div>
+        {/* Full 2-Page Resume PDF Viewer Display */}
+        <div 
+          className="glass-card" 
+          style={{ 
+            padding: '0.5rem', 
+            borderRadius: 'var(--radius-lg)', 
+            boxShadow: 'var(--shadow-lg)',
+            background: '#1e293b' 
+          }}
+        >
+          <iframe 
+            src="/keyur_resume.pdf#toolbar=1&view=FitH" 
+            title="Keyur Rakeshbhai Rana Resume PDF (Page 1 & 2)"
+            width="100%" 
+            height="1150px" 
+            style={{ 
+              border: 'none', 
+              borderRadius: 'var(--radius-md)',
+              background: '#ffffff'
+            }}
+          >
+            <p style={{ padding: '2rem', textAlign: 'center', color: '#ffffff' }}>
+              Your browser does not support inline PDF viewing. 
+              <a href="/keyur_resume.pdf" download="Keyur_Rana_Resume.pdf" style={{ color: 'var(--accent-cyan)', marginLeft: '0.5rem' }}>
+                Download Keyur's 2-Page Resume PDF
+              </a>.
+            </p>
+          </iframe>
         </div>
+
       </div>
     </section>
   );

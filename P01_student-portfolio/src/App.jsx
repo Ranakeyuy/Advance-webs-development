@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavBar from './componenets/NavBar';
 import Header from './componenets/header';
 import About from './componenets/about';
@@ -12,6 +12,8 @@ import { resumeData } from './data/resumeData';
 import './App.css';
 
 function App() {
+  const [showOnlyResume, setShowOnlyResume] = useState(false);
+
   const skillsArray = [
     ...resumeData.skills.languagesAndDomains,
     ...resumeData.skills.hardwareAndSensors,
@@ -20,25 +22,37 @@ function App() {
 
   return (
     <div className="app-container">
-      <NavBar />
+      <NavBar 
+        showOnlyResume={showOnlyResume} 
+        setShowOnlyResume={setShowOnlyResume} 
+      />
       
       <main className="main-content">
-        <Header 
-          name={resumeData.personalInfo.fullName} 
-          tagline={resumeData.personalInfo.tagline} 
-        />
-        
-        <About />
-        
-        <Skills skillList={skillsArray} />
+        {showOnlyResume ? (
+          // ONLY 2-Page Resume PDF & Download Button View
+          <ResumeSection />
+        ) : (
+          // Full Portfolio View with embedded Resume section
+          <>
+            <Header 
+              name={resumeData.personalInfo.fullName} 
+              tagline={resumeData.personalInfo.tagline} 
+              onViewResume={() => setShowOnlyResume(true)}
+            />
+            
+            <About />
+            
+            <Skills skillList={skillsArray} />
 
-        <Experience />
+            <Experience />
 
-        <Projects />
+            <Projects />
 
-        <Education />
+            <Education />
 
-        <ResumeSection />
+            <ResumeSection />
+          </>
+        )}
       </main>
 
       <Footer />
