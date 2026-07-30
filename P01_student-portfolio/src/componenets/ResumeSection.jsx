@@ -1,17 +1,17 @@
 import React from 'react';
-import { Download, ExternalLink, FileText } from 'lucide-react';
+import { Download, ExternalLink, FileText, CheckCircle2 } from 'lucide-react';
 
 function ResumeSection() {
   return (
     <section id="resume" style={{ padding: '2rem 0 4rem' }}>
-      <div className="container" style={{ maxWidth: '1000px' }}>
+      <div className="container" style={{ maxWidth: '900px' }}>
         
-        {/* Top Header Bar with Download Button */}
+        {/* Header Control Bar with Download Button */}
         <div 
           className="glass-card" 
           style={{ 
             padding: '1.25rem 2rem', 
-            marginBottom: '2rem', 
+            marginBottom: '2.5rem', 
             display: 'flex', 
             justify: 'space-between', 
             alignItems: 'center', 
@@ -27,23 +27,23 @@ function ResumeSection() {
                 Keyur Rakeshbhai Rana — Resume
               </h2>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', margin: 0 }}>
-                2-Page PDF Resume Document
+                2-Page PDF Document View
               </p>
             </div>
           </div>
 
           <div style={{ display: 'flex', gap: '0.75rem' }}>
-            {/* Primary Download Button */}
+            {/* Download PDF Button */}
             <a 
               href="/keyur_resume.pdf" 
               download="Keyur_Rana_Resume.pdf" 
               className="btn btn-primary"
               style={{ padding: '0.75rem 1.5rem', fontSize: '0.95rem' }}
             >
-              <Download size={18} /> Download PDF Resume
+              <Download size={18} /> Download Resume (PDF)
             </a>
 
-            {/* Open PDF in New Tab */}
+            {/* View PDF Direct Link */}
             <a 
               href="/keyur_resume.pdf" 
               target="_blank" 
@@ -51,39 +51,60 @@ function ResumeSection() {
               className="btn btn-secondary"
               style={{ padding: '0.75rem 1.25rem', fontSize: '0.95rem' }}
             >
-              <ExternalLink size={18} /> Open Fullscreen
+              <ExternalLink size={18} /> Open PDF
             </a>
           </div>
         </div>
 
-        {/* Full 2-Page Resume PDF Viewer Display */}
-        <div 
-          className="glass-card" 
-          style={{ 
-            padding: '0.5rem', 
-            borderRadius: 'var(--radius-lg)', 
-            boxShadow: 'var(--shadow-lg)',
-            background: '#1e293b' 
-          }}
-        >
-          <iframe 
-            src="/keyur_resume.pdf#toolbar=1&view=FitH" 
-            title="Keyur Rakeshbhai Rana Resume PDF (Page 1 & 2)"
-            width="100%" 
-            height="1150px" 
+        {/* Crisp Page 1 and Page 2 Resume Document Sheets */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', alignItems: 'center' }}>
+          
+          {/* Page 1 */}
+          <div 
+            className="glass-card" 
             style={{ 
-              border: 'none', 
+              width: '100%', 
+              maxWidth: '850px',
+              padding: '0',
+              overflow: 'hidden',
               borderRadius: 'var(--radius-md)',
-              background: '#ffffff'
+              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.5)'
             }}
           >
-            <p style={{ padding: '2rem', textAlign: 'center', color: '#ffffff' }}>
-              Your browser does not support inline PDF viewing. 
-              <a href="/keyur_resume.pdf" download="Keyur_Rana_Resume.pdf" style={{ color: 'var(--accent-cyan)', marginLeft: '0.5rem' }}>
-                Download Keyur's 2-Page Resume PDF
-              </a>.
-            </p>
-          </iframe>
+            <div style={{ background: 'var(--bg-secondary)', padding: '0.6rem 1.25rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>PAGE 1 OF 2</span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>Keyur Rakeshbhai Rana</span>
+            </div>
+            <img 
+              src="/resume_page_1.png" 
+              alt="Keyur Rakeshbhai Rana Resume Page 1" 
+              style={{ width: '100%', display: 'block', height: 'auto' }}
+            />
+          </div>
+
+          {/* Page 2 */}
+          <div 
+            className="glass-card" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '850px',
+              padding: '0',
+              overflow: 'hidden',
+              borderRadius: 'var(--radius-md)',
+              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.5)'
+            }}
+          >
+            <div style={{ background: 'var(--bg-secondary)', padding: '0.6rem 1.25rem', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)', fontWeight: 600 }}>PAGE 2 OF 2</span>
+              <span style={{ fontSize: '0.82rem', color: 'var(--accent-cyan)', fontWeight: 600 }}>Keyur Rakeshbhai Rana</span>
+            </div>
+            <img 
+              src="/resume_page_2.png" 
+              alt="Keyur Rakeshbhai Rana Resume Page 2" 
+              style={{ width: '100%', display: 'block', height: 'auto' }}
+            />
+          </div>
+
         </div>
 
       </div>
