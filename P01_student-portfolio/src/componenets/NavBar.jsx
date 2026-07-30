@@ -49,7 +49,7 @@ function NavBar({ showOnlyResume, setShowOnlyResume }) {
 
           <li>
             <a 
-              href="/keyur_resume.pdf" 
+              href="/resume.pdf" 
               download="Keyur_Rana_Resume.pdf" 
               className="btn btn-primary" 
               style={{ padding: '0.45rem 1rem', fontSize: '0.85rem' }}

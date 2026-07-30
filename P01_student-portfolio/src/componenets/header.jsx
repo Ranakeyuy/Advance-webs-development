@@ -43,7 +43,7 @@ function Header({ name, tagline, onViewResume }) {
         {/* Hero Action Buttons */}
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
           <a 
-            href="/keyur_resume.pdf" 
+            href="/resume.pdf" 
             download="Keyur_Rana_Resume.pdf" 
             className="btn btn-primary"
             style={{ padding: '0.85rem 1.75rem', fontSize: '1rem' }}
