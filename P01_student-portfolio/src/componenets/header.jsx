@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Phone, Mail, MapPin } from 'lucide-react';
+import { Sparkles, Phone, Mail, MapPin, Download, FileText } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
 const GithubIcon = () => (
@@ -39,6 +39,25 @@ function Header({ name, tagline }) {
         <p className="hero-subtitle">
           {tagline || info.tagline}
         </p>
+
+        {/* Hero CTA Action Buttons */}
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '2rem' }}>
+          <a 
+            href="/keyur_resume.pdf" 
+            download="Keyur_Rana_Resume.pdf" 
+            className="btn btn-primary"
+            style={{ padding: '0.85rem 1.75rem', fontSize: '1rem' }}
+          >
+            <Download size={20} /> Download Resume PDF
+          </a>
+          <a 
+            href="#resume" 
+            className="btn btn-secondary"
+            style={{ padding: '0.85rem 1.75rem', fontSize: '1rem' }}
+          >
+            <FileText size={20} /> View Resume Page
+          </a>
+        </div>
 
         <div className="contact-quick-bar">
           <a href={`tel:${info.phone}`} className="contact-quick-item">

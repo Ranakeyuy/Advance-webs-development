@@ -6,12 +6,12 @@ import Skills from './componenets/skills';
 import Experience from './componenets/experience';
 import Projects from './componenets/projects';
 import Education from './componenets/education';
+import ResumeSection from './componenets/ResumeSection';
 import Footer from './componenets/footer';
 import { resumeData } from './data/resumeData';
 import './App.css';
 
 function App() {
-  // All technical skills array passed as prop to Skills component (Practical 1 Requirement)
   const skillsArray = [
     ...resumeData.skills.languagesAndDomains,
     ...resumeData.skills.hardwareAndSensors,
@@ -37,6 +37,8 @@ function App() {
         <Projects />
 
         <Education />
+
+        <ResumeSection />
       </main>
 
       <Footer />
